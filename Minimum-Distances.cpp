@@ -5,6 +5,7 @@ int minimumDistances(vector<int> a)
 
 	for (int i = 0; i < a.size(); ++i)
 	{
+		// ToDo : If statement condition modification is required.
 		if (mp[a[i]])
 		{
 			int distance = i - mp[a[i]];
