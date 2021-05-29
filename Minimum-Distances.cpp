@@ -1,31 +1,22 @@
 int minimumDistances(vector<int> a)
 {
-	int min = a.size();
-	std::map<int, int> mp;
-
-	for (int i = 0; i < a.size(); ++i)
-	{
-		// ToDo : If statement condition modification is required.
-		if (mp[a[i]])
-		{
-			int distance = i - mp[a[i]];
-			if (distance < min)
-			{
-				min = distance;
-			}
-		}
-		else
-		{
-			mp[a[i]] = i;
-		}
-	}
-
-	if (min == a.size())
-	{
-		return -1;
-	}
-
-	return min;
+    int min = a.size();
+    std::map<int, int> mp;
+    
+    for (int i = 0; i < a.size(); ++i)
+    {
+        auto ret = mp.insert({ a[i], i });
+        if (ret.second == false)
+        {
+            int distance = i - ret.first->second;
+            if (distance < min)
+            {
+                min = distance;
+            }
+        }        
+    }
+	
+    return (min == a.size()) ? -1 : min;
 }
 
 
@@ -47,11 +38,6 @@ int minimumDistances0(vector<int> a)
             }
         }
     }
-
-    if ( min == a.size() )
-    {
-        return -1;
-    }
-    
-    return min;
+	
+	return (min == a.size()) ? -1 : min;
 }
