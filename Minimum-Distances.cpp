@@ -3,7 +3,7 @@ int minimumDistances(vector<int> a)
     int min = a.size();
     std::map<int, int> mp;
     
-    for (int i = 0; i < a.size(); ++i)
+    for (size_t i = 0, size = a.size(); i < size; ++i)
     {
         auto ret = mp.insert({ a[i], i });
         if (ret.second == false)
@@ -15,7 +15,7 @@ int minimumDistances(vector<int> a)
             }
         }        
     }
-	
+    
     return (min == a.size()) ? -1 : min;
 }
 
@@ -38,6 +38,6 @@ int minimumDistances0(vector<int> a)
             }
         }
     }
-	
-	return (min == a.size()) ? -1 : min;
+    
+    return (min == a.size()) ? -1 : min;
 }
