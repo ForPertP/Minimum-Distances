@@ -53,6 +53,50 @@ int minimumDistances0(vector<int> a)
             }
         }
     }
+}
+
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    string n_temp;
+    getline(cin, n_temp);
+
+    int n = stoi(ltrim(rtrim(n_temp)));
+
+    string a_temp_temp;
+    getline(cin, a_temp_temp);
+
+    vector<string> a_temp = split(rtrim(a_temp_temp));
+
+    vector<int> a(n);
+
+    for (int i = 0; i < n; i++) {
+        int a_item = stoi(a_temp[i]);
+
+        a[i] = a_item;
+    }
+
+    int result = minimumDistances(a);
+
+    fout << result << "\n";
+
+    fout.close();
+
+    return 0;
+}
+
+string ltrim(const string &str) {
+    string s(str);
+
+    s.erase(
+        s.begin(),
+        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
+    );
+
+    return s;
+}
     
     return (min == a.size()) ? -1 : min;
 }
