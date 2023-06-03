@@ -34,8 +34,7 @@ int minimumDistances(vector<int> a)
     return (min == a.size()) ? -1 : min;
 }
 
-
-int minimumDistances0(vector<int> a)
+int minimumDistances1(vector<int> a)
 {
     int min = a.size();
 
