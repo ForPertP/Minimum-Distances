@@ -24,7 +24,26 @@ class Result
 
     public static int minimumDistances(List<int> a)
     {
+        int min = a.Count;
+        Dictionary<int, int> mp = new Dictionary<int, int>();
 
+        for (int i = 0; i < a.Count; i++)
+        {
+            if (mp.ContainsKey(a[i]))
+            {
+                int distance = i - mp[a[i]];
+                if (distance < min)
+                {
+                    min = distance;
+                }
+            }
+            else
+            {
+                mp.Add(a[i], i);
+            }
+        }
+
+        return (min == a.Count) ? -1 : min;
     }
 
 }
