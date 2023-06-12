@@ -12,7 +12,32 @@ vector<string> split(const string &);
  * The function is expected to return an INTEGER.
  * The function accepts INTEGER_ARRAY a as parameter.
  */
-int minimumDistances(vector<int> a)
+ int minimumDistances(vector<int>& a)
+{
+    int min = a.size();
+    std::unordered_map<int, int> mp;
+    size_t size = a.size();
+
+    for (size_t i = 0; i < size; ++i)
+    {
+        auto [it, inserted] = mp.try_emplace(a[i], i);
+        if (!inserted)
+        {
+            int distance = i - it->second;
+            if (distance < min)
+            {
+                min = distance;
+                if (min == 1)
+                    break;
+            }
+        }
+    }
+
+    return (min == a.size()) ? -1 : min;
+}
+
+
+int minimumDistances1(vector<int>& a)
 {
     int min = a.size();
     std::unordered_map<int, int> mp;
@@ -55,7 +80,7 @@ int minimumDistances2(vector<int>& a) {
 }
 
 
-int minimumDistances2(vector<int> a)
+int minimumDistances3(vector<int>& a)
 {
     int min = a.size();
 
