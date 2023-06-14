@@ -15,8 +15,8 @@ vector<string> split(const string &);
  int minimumDistances(vector<int>& a)
 {
     int min = a.size();
-    std::unordered_map<int, int> mp;
     size_t size = a.size();
+    std::unordered_map<int, int> mp;
 
     for (size_t i = 0; i < size; ++i)
     {
