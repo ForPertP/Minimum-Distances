@@ -25,9 +25,11 @@ class Result
     public static int minimumDistances(List<int> a)
     {
         int min = a.Count;
+        int size = a.Count;
+
         Dictionary<int, int> mp = new Dictionary<int, int>();
 
-        for (int i = 0; i < a.Count; i++)
+        for (int i = 0; i < size; i++)
         {
             if (mp.ContainsKey(a[i]))
             {
@@ -35,6 +37,11 @@ class Result
                 if (distance < min)
                 {
                     min = distance;
+                }
+                
+                if (min == 1)
+                {
+                    break;
                 }
             }
             else
